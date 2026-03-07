@@ -11,9 +11,10 @@
                         <div class="card" style="width: 18rem;">
                           <img src="<%# Eval("HinhAnh") %>" class="card-img-top" alt="...">
                           <div class="card-body">
-                            
-                            <a href="#" class="btn btn-primary"><%# Eval("TenSach") %></a>
-                              <h5 class="card-title"><%# Eval("GiaBan") %></h5>
+
+                            <a href="#" class="btn btn-primary aten"><%# Eval("TenSach") %></a>
+                            <div class="card-title"><%# Eval("GiaBan") %></div>
+
                           </div>
                         </div>
                     </td>
@@ -21,7 +22,7 @@
             </table>
         </ItemTemplate>
     </asp:DataList>
-    <asp:AccessDataSource ID="AccessDataSource_SM" runat="server" DataFile="~/Data/BanSach.mdb" SelectCommand="SELECT TOP 5 * FROM Sach 
+    <asp:AccessDataSource ID="AccessDataSource_SM" runat="server" DataFile="~/Data/BanSach.mdb" SelectCommand="SELECT TOP 10 * FROM Sach 
 ORDER BY id DESC;"></asp:AccessDataSource>
 </asp:Content>
 

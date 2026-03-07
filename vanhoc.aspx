@@ -12,7 +12,7 @@
                           <img src="<%# Eval("HinhAnh") %>" class="card-img-top" alt="...">
                           <div class="card-body">
                             
-                            <a href="#" class="btn btn-primary"><%# Eval("TenSach") %></a>
+                            <a href="#" class="btn btn-primary aten"><%# Eval("TenSach") %></a>
                               <h5 class="card-title"><%# Eval("GiaBan") %></h5>
                           </div>
                         </div>
