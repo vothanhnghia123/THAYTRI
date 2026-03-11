@@ -8,7 +8,7 @@
             <table cellpadding="0" cellspacing="0" class="auto-style3">
                 <tr>
                     <td>
-                        <asp:HyperLink ID="HyperLink27" runat="server">
+                        <asp:HyperLink ID="HyperLink27" runat="server" NavigateUrl='<%# Eval("MaSach", "trangchitiet.aspx?MaSach={0}") %>'>
                             <div class="card" style="width: 18rem;">
                               <img src="<%# Eval("HinhAnh") %>" class="card-img-top" alt="...">
                               <div class="card-body">

@@ -35,8 +35,9 @@
         }
         /*sub_MENU_THẺ LOẠI*/
         .category-cell {
-            position: relative;
-            overflow: visible;
+            position: absolute;
+            /*position: relative;
+            overflow: visible;*/
         }
         .category-cell a {
             text-decoration:none;
@@ -252,9 +253,9 @@
 
                                                         <a href="vanhoc.aspx" onclick="toggleSub('sub1_VH')">Văn học</a>
                                                             <ul id="sub1_VH" class="sub-menu-theloai_1_1 sub-right">
-                                                                <li><a href="https://www.fahasa.com/" >Tiểu Thuyết</a></li>
-                                                                <li><a href="https://www.fahasa.com/" >Chuyện Ngắn </a></li>
-                                                                <li><a href="https://www.fahasa.com/" >Ngôn Tình</a></li>
+                                                                <li><a href="tieuthuyet.aspx" >Tiểu Thuyết</a></li>
+                                                                <li><a href="chuyenngan.aspx" >Chuyện Ngắn </a></li>
+                                                                <li><a href="ngontinh.aspx" >Ngôn Tình</a></li>
                                                                 
                                                             </ul>
 
