@@ -25,7 +25,7 @@
         }
         /* menu đăng nhập và giỏ hàng*/
         .menu-login_shopping-cart{
-            width: 40%;
+            width: 45%;
           
         }
         /*sub_MENU*/
@@ -216,7 +216,13 @@
                                 <table cellpadding="0" cellspacing="0" class="menu-login_shopping-cart">
                                     <tr>
                                         <td>
-                                            <asp:HyperLink ID="HyperLink1" runat="server" style="font-weight: 700">Đăng nhập</asp:HyperLink>
+                                            <asp:PlaceHolder ID="phAnonymous" runat="server">
+                                            <asp:HyperLink ID="HyperLink1" Class="alink" runat="server" style="font-weight: 700" NavigateUrl="~/Dangnhap.aspx">Đăng nhập</asp:HyperLink>
+                                            </asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="phLoggedIn" runat="server" Visible="false">
+                                            Chào, <asp:Label ID="lblUsername" runat="server" Font-Bold="true"></asp:Label> | 
+                                            <asp:LinkButton ID="btnLogout" Class="alink" runat="server" OnClick="btnLogout_Click">Đăng xuất</asp:LinkButton>
+                                            </asp:PlaceHolder>
                                         </td>
                                         <td>
                                             <asp:HyperLink ID="HyperLink2" runat="server" style="font-weight: 700">Giỏ hàng</asp:HyperLink>
@@ -288,11 +294,7 @@
             <tr>
                 <td style="background-color: #DBDEE1">
                     <table align="center" cellpadding="0" cellspacing="0" class="auto-style2 Products">
-                        <tr>
-                            <td class="auto-style4">
-                                <h2>SÁCH MỚI</h2>
-                            </td>
-                        </tr>
+                        
                         <tr>
                             <td class="auto-style4">
                                 
@@ -300,31 +302,9 @@
                                 </asp:ContentPlaceHolder>
                             </td>
                         </tr>
-                        <tr>
-                            <td align="right" class="auto-style4">
-                                <asp:HyperLink ID="HyperLink5" runat="server" style="font-weight: 700">Xem thêm &gt;</asp:HyperLink>
-                            </td>
-                        </tr>
+                        
                     </table>
-                    <table align="center" cellpadding="0" cellspacing="0" class="auto-style2 Products">
-                        <tr>
-                            <td class="auto-style4">
-                                <h2>SÁCH MỚI</h2>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style4">
-                                
-                                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-                                </asp:ContentPlaceHolder>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="auto-style4">
-                                <asp:HyperLink ID="HyperLink8" runat="server" style="font-weight: 700">Xem thêm &gt;</asp:HyperLink>
-                            </td>
-                        </tr>
-                    </table>
+   
                 </td>
             </tr>
         </table>

@@ -43,7 +43,8 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="btdangnhap" runat="server" OnClick="btdangnhap_Click" style="text-align: center" Text="Button" />
+                    <asp:Button ID="btdangnhap" runat="server" OnClick="btdangnhap_Click" style="text-align: center" Text="Đăng nhập" />
+                &nbsp;<asp:Button ID="Button1" runat="server" Text="Đăng ký" />
                 </td>
             </tr>
             <tr>
