@@ -3,22 +3,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div><h1>Sách thiếu nhi</h1></div>
-    <asp:DataList ID="DataList1" runat="server" DataKeyField="MaSach" DataSourceID="AccessDataSource1" RepeatColumns="4">
+    
+    <asp:DataList ID="DataList1" runat="server" DataKeyField="MaSach" DataSourceID="AccessDataSource1" RepeatColumns="5">
         <ItemTemplate>
             <table cellpadding="0" cellspacing="0" class="auto-style3">
                 <tr>
                     <td>
-                        <asp:HyperLink ID="HyperLink27" runat="server">
-                            <div class="card" style="width: 18rem;">
-                              <img src="<%# Eval("HinhAnh") %>" class="card-img-top" alt="...">
-                              <div class="card-body">
+                        <asp:HyperLink ID="HyperLink27" runat="server" Class="alink" NavigateUrl='<%# Eval("MaSach", "trangchitiet.aspx?MaSach={0}") %>'>
+                            <div class="book-card">
 
-                                <a href="#" class="btn btn-primary aten"><%# Eval("TenSach") %></a>
-                            
-                                <div class="card-title"><%# Eval("GiaBan") %></div>
+                                <img src="<%# Eval("HinhAnh") %>" class="book-img">
 
-                              </div>
+                                <div class="book-name">
+                                    <%# Eval("TenSach") %>
+                                </div>
+
+                                <div class="book-price">
+                                    <%# String.Format("{0:N0}", Eval("GiaBan")) %> đ
+                                </div>
+
                             </div>
                         </asp:HyperLink>
                     </td>
