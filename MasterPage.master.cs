@@ -29,5 +29,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Session.Remove("Role");     // Xóa quyền
         Response.Redirect("~/TrangChu.aspx"); // Đá về trang chủ
     }
-    
+
+    protected void btTIMKIEM_Click(object sender, EventArgs e)
+    {
+        string tukhoa = txtTIMKIEM.Text;
+        Response.Redirect("timkiem.aspx?q=" + tukhoa);
+    }
 }

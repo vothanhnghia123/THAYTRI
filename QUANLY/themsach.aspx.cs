@@ -88,8 +88,9 @@ public partial class QUANLY_themsach : System.Web.UI.Page
         sqlAdd += "'" + txtNDTT.Text + "'," /*+ DateTime.Now + "',"*/;
         sqlAdd += "#" + DateTime.Now.ToString("MM/dd/yyyy") + "#,";
         //sqlAdd += "'" + decimal.Parse(txtGB.Text) + "',";
-        sqlAdd += "'" + txtGB.Text + "',";
         sqlAdd += decimal.Parse(txtGB.Text) + ",";
+        //sqlAdd += decimal.Parse(txtGB.Text) + ",";
+        sqlAdd += "'" + txtTacGia.Text + "',";
         sqlAdd += "'" + imgPath + "','" + txtChuThich.Text + "',";
         sqlAdd += "'" + txtNXB.Text + "',";
         sqlAdd += "'" + txtNCC.Text + "',";

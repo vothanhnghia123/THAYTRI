@@ -85,7 +85,7 @@
 
         <asp:Button ID="btnCart" runat="server" Text="Thêm vào giỏ hàng" CssClass="btn btn-cart" OnClick="btnCart_Click" />
 
-        <asp:Button ID="btnBuy" runat="server" Text="Mua ngay" CssClass="btn btn-buy" />
+        
 
     </div>
 
