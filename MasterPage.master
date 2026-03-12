@@ -9,12 +9,20 @@
     </asp:ContentPlaceHolder>
     <style type="text/css">
         /*-----------header-------------------*/
-        .auto-style1 {
+        .header-container {
+      
+            /* Đổ bóng trên div sẽ rõ ràng hơn */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            margin-bottom: 5px; /* Tạo khoảng cách bên dưới để thấy bóng */
+        }
+        
+       .auto-style1 {
             width: 100%;
             margin-bottom: 0px;
-            box-shadow:0 10px 25px rgba(0,0,0,0.1);
+            /*box-shadow:0 10px 25px rgba(0,0,0,0.1);*/
             padding-bottom:20px;
             background-color:white;
+            position: relative; z-index: 10;
         }
         .auto-style2 {
             width: 75%;
@@ -113,8 +121,15 @@
         .Products{
             padding-bottom:20px;
         }
+        .backgruop_main{
+            background-color:white;
+        }
         /**/
-        
+        .a_xemthem{
+            display:block;
+            justify-content:flex-end;
+            align-content:flex-end;
+        }
         /**/
         /* san pham*/
         /* anh*/
@@ -204,14 +219,14 @@
 <body>
     <form id="form1" runat="server">
     <div>
-   
+        <div class="header-container">
         <table cellpadding="0" cellspacing="0" class="auto-style1">
             <tr>
                 <td>
                     <table align="center" cellpadding="0" cellspacing="0" class="auto-style2">
                         <tr>
                             <td>
-                                <asp:Image ID="Image1" Width="257" Height="50" runat="server" ImageUrl="~/Images/logo-deluxe-1024x202.png" />
+                                <asp:Image ID="Image1" Width="180" Height="50" runat="server" ImageUrl="~/Images/bookstore_logo.png" />
                             </td>
                             <td align="right">
                                 <table cellpadding="0" cellspacing="0" class="menu-login_shopping-cart">
@@ -265,9 +280,9 @@
 
                                                         <a href="sachthieunhi.aspx" onclick="toggleSub('sub1_KT')">Sách thiếu nhi</a>
                                                             <ul id="sub1_1" class="sub-menu-theloai_1_1 sub-right">
-                                                                <li><a href="https://www.fahasa.com/" >Truyện Thiếu Nhi</a></li>
-                                                                <li><a href="https://www.fahasa.com/" >Từ Điển Thiếu Nhi </a></li>
-                                                                <li><a href="https://www.fahasa.com/" >Sách Nói</a></li>
+                                                                <li><a href="truyenthieunhi.aspx" >Truyện Thiếu Nhi</a></li>
+                                                                <li><a href="tudienthieunhi.aspx" >Từ Điển Thiếu Nhi </a></li>
+                                                                <li><a href="sachnoi.aspx" >Sách Nói</a></li>
                                                 
                                                             </ul>
                                                         
@@ -290,10 +305,10 @@
                 </td>
             </tr>
         </table>
-        
+        </div>
         <table cellpadding="0" cellspacing="0" class="auto-style3">
             <tr>
-                <td style="background-color: #DBDEE1">
+                <td class="backgruop_main">
                     <table align="center" cellpadding="0" cellspacing="0" class="auto-style2 Products">
                         
                         <tr>
@@ -318,7 +333,7 @@
                                 <table cellpadding="0" cellspacing="0" class="auto-style3 footer_h3_alink" >
                                     <tr>
                                         <td class="footer_TEN">
-                                            <h3 class="footer_h3" >Tên Web</h3>
+                                            <h3 class="footer_h3" >Book Store</h3>
                                              <asp:HyperLink class="footer_a_link" ID="HyperLink9" runat="server" style="font-weight: 700" NavigateUrl="~/https://deluxegaming.vn/">Vị trí </asp:HyperLink>
                                              <asp:HyperLink class="footer_a_link" ID="HyperLink10" runat="server" style="font-weight: 700">Vị trí </asp:HyperLink>
                                              <asp:HyperLink class="footer_a_link" ID="HyperLink11" runat="server" style="font-weight: 700">Vị trí </asp:HyperLink>
