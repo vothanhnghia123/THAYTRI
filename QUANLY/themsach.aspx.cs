@@ -110,7 +110,7 @@ public partial class QUANLY_themsach : System.Web.UI.Page
         string strl = "Provider = Microsoft.jet.OLEDB.4.0; data source =" + Server.MapPath("~/Data/BanSach.mdb");
         OleDbConnection cn = new OleDbConnection(strl);
         cn.Open();
-        string sql = "Select * From Sach";
+        string sql = "Select * From Sach ORDER BY ID DESC";
         OleDbDataAdapter oda = new OleDbDataAdapter(sql, cn);
         DataTable dt = new DataTable();
         oda.Fill(dt);

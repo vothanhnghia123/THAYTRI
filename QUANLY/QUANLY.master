@@ -200,64 +200,307 @@
     border:1px solid #ddd;
     padding:8px;
 }
+
 /*sach*/
-.form-box{
-    width:650px;
-    margin:auto;
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 3px 12px rgba(0,0,0,0.1);
+/* chỉ áp dụng cho trang sách */
+.sach-page .form-box{
+width:650px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 3px 12px rgba(0,0,0,0.1);
+}
+
+.sach-page .form-box h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.sach-page .form-table{
+width:100%;
+}
+
+.sach-page .form-table td{
+padding:8px;
+vertical-align:middle;
+}
+
+.sach-page .form-table td:first-child{
+width:180px;
+font-weight:bold;
+}
+
+.sach-page .input{
+width:100%;
+padding:7px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.sach-page .btn-them{
+background:#e30019;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.sach-page .btn-them:hover{
+background:#c40015;
+}
+
+/* view bản sách*/
+    .table-box{
+    width:100%;
+    overflow-x:auto;
+    margin-top:20px;
+    }
+
+    .grid{
+    width:100%;
+    border-collapse:collapse;
+    font-family:Arial;
+    }
+
+    .grid th{
+    background:#e60023;
+    color:white;
+    padding:10px;
+    }
+
+    .grid td{
+    padding:8px;
+    border:1px solid #ddd;
+    text-align:center;
+    }
+
+    .grid tr:nth-child(even){
+    background:#f5f5f5;
+    }
+
+    .grid tr:hover{
+    background:#e9f3ff;
+    }
+
+    .btn-view{
+    background:#2196F3;
+    color:white;
+    padding:5px 10px;
+    text-decoration:none;
+    border-radius:4px;
+    }
+
+    .btn-edit{
+    background:#4CAF50;
+    color:white;
+    padding:5px 10px;
+    text-decoration:none;
+    border-radius:4px;
+    }
+
+    .btn-delete{
+    background:#f44336;
+    color:white;
+    padding:5px 10px;
+    text-decoration:none;
+    border-radius:4px;
+    }
+    </style>
+    <style>
+        /*trang chu*/
+        .dashboard{
+display:flex;
+gap:30px;
+margin-top:20px;
+}
+
+.box{
+flex:1;
+background:white;
+padding:25px;
+text-align:center;
+border-radius:8px;
+box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+.box h3{
+color:#333;
+margin-bottom:10px;
+}
+
+.box span,
+.box label{
+font-size:28px;
+font-weight:bold;
+color:red;
+}
+    </style>
+    <style>
+        /*sau sach*/
+        .sua-sach-page{
+width:700px;
+margin:auto;
+background:#fff;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sua-sach-page h2{
+text-align:center;
+margin-bottom:25px;
+font-size:26px;
+}
+
+.sua-sach-page .form-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.sua-sach-page .form-table td{
+padding:10px;
+vertical-align:top;
+}
+
+.sua-sach-page .form-table td:first-child{
+width:180px;
+font-weight:bold;
+}
+
+.form-table input[type="text"],
+.form-table textarea{
+width:400px;
+padding:8px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+/**/
+.btn-update{
+background:#e60023;
+color:white;
+border:none;
+padding:10px 25px;
+border-radius:6px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn-update:hover{
+background:#c4001d;
+transform:scale(1.05);
+}
+    </style>
+    <style>
+        /*linh vuc*/
+        .form-box{
+width:400px;
+margin:30px auto;
+background:white;
+padding:25px;
+border-radius:8px;
+box-shadow:0 3px 8px rgba(0,0,0,0.2);
+font-family:Arial;
+}
+
+.form-box h2{
+text-align:center;
+margin-bottom:20px;
+color:#333;
+}
+
+.form-group{
+margin-bottom:15px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:5px;
+font-weight:bold;
+color:#555;
+}
+
+.input{
+width:100%;
+padding:8px;
+border:1px solid #ccc;
+border-radius:4px;
+font-size:14px;
+}
+
+.input:focus{
+border-color:#007bff;
+outline:none;
+box-shadow:0 0 5px rgba(0,123,255,0.3);
+}
+
+.btn-update{
+width:100%;
+padding:10px;
+background:#007bff;
+color:white;
+border:none;
+border-radius:5px;
+font-size:15px;
+cursor:pointer;
+}
+
+.btn-update:hover{
+background:#0056b3;
+}
+    </style>
+    <style>
+        /*sua the loai*/
+        .form-box{
+    width:520px;
+    margin:60px auto;
+    background:#fff;
+    padding:40px 50px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
 .form-box h2{
     text-align:center;
+    margin-bottom:30px;
+    color:#333;
+}
+
+.form-group{
     margin-bottom:20px;
 }
 
-.form-table{
-    width:100%;
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
 }
 
-.form-table td{
-    padding:8px;
-}
-
-.input{
+.form-group input,
+.form-group select{
     width:100%;
-    padding:7px;
+    padding:10px;
     border:1px solid #ccc;
-    border-radius:5px;
+    border-radius:6px;
+    font-size:14px;
 }
 
-.btn-them{
-    background:#e30019;
-    color:white;
+.btn-update{
+    width:100%;
+    padding:12px;
+    background:#1e73d8;
     border:none;
-    padding:8px 18px;
-    border-radius:5px;
+    color:white;
+    font-size:15px;
+    border-radius:6px;
     cursor:pointer;
 }
 
-.btn-them:hover{
-    background:#c40015;
-}
-
-.grid{
-    width:100%;
-    margin-top:20px;
-    border-collapse:collapse;
-}
-
-.grid th{
-    background:#e30019;
-    color:white;
-    padding:8px;
-}
-
-.grid td{
-    border:1px solid #ddd;
-    padding:8px;
+.btn-update:hover{
+    background:#155bb5;
 }
     </style>
 </head>

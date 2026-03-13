@@ -23,7 +23,36 @@
     </div>
 
     <div class="table-box">
-        <asp:GridView ID="GridView_LV" runat="server" CssClass="grid"></asp:GridView>
+        <asp:GridView 
+ID="GridView_LV" 
+runat="server"
+AutoGenerateColumns="false"
+CssClass="grid">
+
+<Columns>
+
+<asp:BoundField DataField="MaLinhVuc" HeaderText="Mã lĩnh vực" />
+<asp:BoundField DataField="TenLinhVuc" HeaderText="Tên lĩnh vực" />
+
+<asp:TemplateField HeaderText="Sửa">
+<ItemTemplate>
+<a href='sualinhvuc.aspx?id=<%# Eval("MaLinhVuc") %>' 
+class="btn-edit">Sửa</a>
+</ItemTemplate>
+</asp:TemplateField>
+
+<asp:TemplateField HeaderText="Xóa">
+<ItemTemplate>
+<a href='xoalinhvuc.aspx?id=<%# Eval("MaLinhVuc") %>' 
+class="btn-delete"
+onclick="return confirm('Bạn có chắc muốn xóa?')">
+Xóa
+</a>
+</ItemTemplate>
+</asp:TemplateField>
+
+</Columns>
+</asp:GridView>
     </div>
 
 </div>

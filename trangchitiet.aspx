@@ -98,7 +98,9 @@
     <div>
 
         <h2>Mô tả</h2>
-
+        <h3>
+            <asp:Label ID="Label1" runat="server" Text='<%# Eval("TenSach") %>'></asp:Label> <br>
+        </h3>
         <asp:Label ID="lblMoTa" runat="server"><%# Eval("MoTa") %></asp:Label>
 
         <h2>Nội dung tóm tắt</h2>

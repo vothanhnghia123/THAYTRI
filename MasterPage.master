@@ -168,6 +168,9 @@
 }
 
 /* hover menu cha thì hiện menu con */
+.has-sub{
+    position:relative;
+}
 .has-sub:hover .sub-menu-theloai_1_1{
     display:block;
 }
@@ -283,6 +286,7 @@
             .container{
                 width:1200px;
                 margin:auto;
+                margin-top:20px;
                 display:flex;
                 gap:40px;
             }
@@ -290,6 +294,7 @@
             display:grid;
             grid-template-columns: 300px 300px;
             margin-top:10px;
+            margin-bottom:10px;
         }
             .img-book img{
                 width:300px;
@@ -654,6 +659,7 @@
        /* ====== KHU VỰC TRANG TÌM KIẾM ====== */
 .search-page{
     width: 80%;
+    height:700px;
     margin: 40px auto;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -724,7 +730,8 @@
                     <table align="center" cellpadding="0" cellspacing="0" class="auto-style2">
                         <tr>
                             <td>
-                                <asp:Image ID="Image1" Width="180" Height="50" runat="server" ImageUrl="~/Images/bookstore_logo.png" />
+                              
+                                <asp:ImageButton ID="Image1" Width="180" Height="50" runat="server" ImageUrl="~/Images/bookstore_logo.png" PostBackUrl="~/TRANGCHU.aspx" />
                             </td>
                             <td align="right">
                                 <table cellpadding="0" cellspacing="0" class="menu-login_shopping-cart">
@@ -757,40 +764,46 @@
                                         </td>
                                         <td class="category-cell">
 
-                                          
-
                                             <a href="#">Thể loại</a>
 
-                                                <ul id="sub1" class="sub-menu-theloai_1" >
-                                                    <li class="has-sub">
+                                          <ul class="sub-menu-theloai_1">
 
-                                                        <a href="vanhoc.aspx">Văn học</a>
-                                                            <ul id="sub1_VH" class="sub-menu-theloai_1_1 sub-right">
-                                                                <li><a href="tieuthuyet.aspx" >Tiểu Thuyết</a></li>
-                                                                <li><a href="chuyenngan.aspx" >Chuyện Ngắn </a></li>
-                                                                <li><a href="ngontinh.aspx" >Ngôn Tình</a></li>
-                                                                
-                                                            </ul>
+                                            <asp:Repeater ID="rpLinhVuc" runat="server" 
+                                            OnItemDataBound="rpLinhVuc_ItemDataBound">
 
-                                                    </li>
-                                                  
-                                                    <li class="has-sub">
+                                            <ItemTemplate>
 
-                                                        <a href="sachthieunhi.aspx" onclick="toggleSub('sub1_KT')">Sách thiếu nhi</a>
-                                                            <ul id="sub1_1" class="sub-menu-theloai_1_1 sub-right">
-                                                                <li><a href="truyenthieunhi.aspx" >Truyện Thiếu Nhi</a></li>
-                                                                <li><a href="tudienthieunhi.aspx" >Từ Điển Thiếu Nhi </a></li>
-                                                                <li><a href="sachnoi.aspx" >Sách Nói</a></li>
-                                                
-                                                            </ul>
-                                                        
-                                                    </li>
-                                                </ul>
+                                            <li class="has-sub">
 
+                                            <a href='sanpham.aspx?malv=<%# Eval("MaLinhVuc") %>'>
+                                            <%# Eval("TenLinhVuc") %>
+                                            </a>
 
+                                            <ul class="sub-menu-theloai_1_1 sub-right">
 
+                                            <asp:Repeater ID="rpTheLoai" runat="server">
+                                            <ItemTemplate>
 
-                                        </td>
+                                            <li>
+                                            <a href='sanpham.aspx?matl=<%# Eval("MaTheLoai") %>'>
+                                            <%# Eval("TenTheLoai") %>
+                                            </a>
+                                            </li>
+
+                                            </ItemTemplate>
+                                            </asp:Repeater>
+
+                                            </ul>
+
+                                            </li>
+
+                                            </ItemTemplate>
+
+                                            </asp:Repeater>
+
+                                            </ul>
+
+                                            </td>
                                     </tr>
                                 </table>
                             </td>
@@ -832,25 +845,25 @@
                                     <tr>
                                         <td class="footer_TEN">
                                             <h3 class="footer_h3" >Book Store</h3>
-                                             <asp:HyperLink class="footer_a_link" ID="HyperLink9" runat="server" style="font-weight: 700" NavigateUrl="~/https://deluxegaming.vn/">Vị trí </asp:HyperLink>
-                                             <asp:HyperLink class="footer_a_link" ID="HyperLink10" runat="server" style="font-weight: 700">Vị trí </asp:HyperLink>
-                                             <asp:HyperLink class="footer_a_link" ID="HyperLink11" runat="server" style="font-weight: 700">Vị trí </asp:HyperLink>
-                                             <asp:HyperLink class="footer_a_link" ID="HyperLink12" runat="server" style="font-weight: 700">Vị trí </asp:HyperLink>
+                                             <asp:HyperLink class="footer_a_link alink" ID="HyperLink9" runat="server" style="font-weight: 700"  NavigateUrl="TRANGCHU.aspx"> 15 Trần Văn Trà</asp:HyperLink>
+                                             <asp:HyperLink class="footer_a_link alink" ID="HyperLink10" runat="server" style="font-weight: 700">1234 567 890</asp:HyperLink>
+                                             <asp:HyperLink class="footer_a_link alink" ID="HyperLink11" runat="server" style="font-weight: 700">bookstore.@gmail.com </asp:HyperLink>
+                                             <asp:HyperLink class="footer_a_link alink" ID="HyperLink12" runat="server" style="font-weight: 700">www.bookstore.vn </asp:HyperLink>
                                          
                                         </td>
                                         <td class="footer_TT">
                                             <h3 class="footer_h3" >Thông tin </h3>
-                                            <asp:HyperLink class="footer_a_link" ID="HyperLink14" runat="server" style="font-weight: 700">Giới thiệu</asp:HyperLink>
-                                            <asp:HyperLink class="footer_a_link" ID="HyperLink18" runat="server" style="font-weight: 700">Giới thiệu</asp:HyperLink>
-                                            <asp:HyperLink class="footer_a_link" ID="HyperLink24" runat="server" style="font-weight: 700">Giới thiệu</asp:HyperLink>
+                                            <asp:HyperLink class="footer_a_link alink" ID="HyperLink14" runat="server" style="font-weight: 700" NavigateUrl="gioithieu.aspx">Giới thiệu</asp:HyperLink>
+                                            <asp:HyperLink class="footer_a_link alink" ID="HyperLink18" runat="server" style="font-weight: 700"  NavigateUrl="TRANGCHU.aspx">Cửa hàng</asp:HyperLink>
+                                            <asp:HyperLink class="footer_a_link alink" ID="HyperLink24" runat="server" style="font-weight: 700">Liên hệ</asp:HyperLink>
 
                                         </td>
                                         <td class="footer_DK_CS">
                                             <h3 class="footer_h3" >Điều khoản &amp;chính sách</h3>
-                                            <asp:HyperLink class="footer_a_link" ID="HyperLink25" runat="server" style="font-weight: 700">Bảo hành và hoàn tiền</asp:HyperLink>
-                                            <asp:HyperLink class="footer_a_link" ID="HyperLink26" runat="server" style="font-weight: 700">Bảo mật & quyền riêng tư</asp:HyperLink>
-                                            <asp:HyperLink class="footer_a_link" ID="HyperLink6" runat="server" style="font-weight: 700">Chính sách & điều khoảng</asp:HyperLink>
-                                            <asp:HyperLink class="footer_a_link" ID="HyperLink7" runat="server" style="font-weight: 700">Hướng dẫn thanh toán</asp:HyperLink>
+                                            <asp:HyperLink class="footer_a_link alink" ID="HyperLink25" runat="server" style="font-weight: 700">Bảo hành và hoàn tiền</asp:HyperLink>
+                                            <asp:HyperLink class="footer_a_link alink" ID="HyperLink26" runat="server" style="font-weight: 700">Bảo mật & quyền riêng tư</asp:HyperLink>
+                                            <asp:HyperLink class="footer_a_link alink" ID="HyperLink6" runat="server" style="font-weight: 700">Chính sách & điều khoảng</asp:HyperLink>
+                                            <asp:HyperLink class="footer_a_link alink" ID="HyperLink7" runat="server" style="font-weight: 700">Hướng dẫn thanh toán</asp:HyperLink>
                                         </td>
                                         <td class="footer_PT_TT">
                                             <h3 class="footer_h3">Phương thúc thanh toán</h3>

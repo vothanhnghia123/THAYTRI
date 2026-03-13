@@ -4,6 +4,7 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="sach-page">
     <div class="form-box">
 
     <h2>Nhập Thông Tin Sách</h2>
@@ -136,9 +137,52 @@
     </table>
 
     <div class="table-box">
-        <asp:GridView ID="GridView_S" runat="server" CssClass="grid"></asp:GridView>
-    </div>
+        <asp:GridView 
+            ID="GridView_S" 
+            runat="server"
+            CssClass="grid"
+            AutoGenerateColumns="false"
+            GridLines="None">
 
-</div>
+        <Columns>
+
+        <asp:BoundField DataField="ID" HeaderText="ID" />
+        <asp:BoundField DataField="MaSach" HeaderText="Mã sách" />
+        <asp:BoundField DataField="TenSach" HeaderText="Tên sách" />
+        <asp:BoundField DataField="GiaBan" HeaderText="Giá" />
+        <asp:BoundField DataField="TacGia" HeaderText="Tác giả" />
+
+        <asp:TemplateField HeaderText="Hình ảnh">
+        <ItemTemplate>
+        <asp:Image ID="imgSP" runat="server" ImageUrl='<%# Eval("HinhAnh", "~/{0}") %>' Width="60" />
+        </ItemTemplate>
+        </asp:TemplateField>
+
+        <asp:TemplateField HeaderText="Chi tiết">
+        <ItemTemplate>
+        <a href='chitietsach.aspx?id=<%# Eval("ID") %>' class="btn-view">Xem</a>
+        </ItemTemplate>
+        </asp:TemplateField>
+
+        <asp:TemplateField HeaderText="Sửa">
+        <ItemTemplate>
+        <a href='suasach.aspx?id=<%# Eval("ID") %>' class="btn-edit">Sửa</a>
+        </ItemTemplate>
+        </asp:TemplateField>
+
+        <asp:TemplateField HeaderText="Xóa">
+        <ItemTemplate>
+        <a href='xoasach.aspx?id=<%# Eval("ID") %>' 
+        class="btn-delete"
+        onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
+        </ItemTemplate>
+        </asp:TemplateField>
+
+        </Columns>
+        </asp:GridView>
+        </div>
+
+        </div>
+     </div>
 </asp:Content>
 

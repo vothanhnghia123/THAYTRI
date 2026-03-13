@@ -18,14 +18,49 @@
         <asp:TextBox ID="txtTenTL" runat="server" CssClass="input"></asp:TextBox>
     </div>
 
+        <div class="form-group">
+         <label>Lĩnh Vực</label>
+         <asp:DropDownList ID="ddlLinhVuc" runat="server" CssClass="input"></asp:DropDownList>
+    </div>
+
     <div class="form-group">
         <asp:Button ID="Button1" runat="server" Text="Thêm"
             OnClick="Button1_Click" CssClass="btn-them"/>
     </div>
 
     <div class="table-box">
-        <asp:GridView ID="GridView_TL" runat="server" CssClass="grid"></asp:GridView>
-    </div>
+<asp:GridView 
+ID="GridView_TL" 
+runat="server" 
+CssClass="grid"
+AutoGenerateColumns="false"
+GridLines="None">
+
+<Columns>
+
+<asp:BoundField DataField="MaTheLoai" HeaderText="Mã Thể Loại" />
+<asp:BoundField DataField="TenTheLoai" HeaderText="Tên Thể Loại" />
+<asp:BoundField DataField="MaLinhVuc" HeaderText="Mã Lĩnh Vực" />
+
+<asp:TemplateField HeaderText="Sửa">
+<ItemTemplate>
+<a href='suatheloai.aspx?id=<%# Eval("MaTheLoai") %>' class="btn-edit">Sửa</a>
+</ItemTemplate>
+</asp:TemplateField>
+
+<asp:TemplateField HeaderText="Xóa">
+<ItemTemplate>
+<a href='xoatheloai.aspx?id=<%# Eval("MaTheLoai") %>'
+class="btn-delete"
+onclick="return confirm('Bạn có chắc muốn xóa?')">
+Xóa
+</a>
+</ItemTemplate>
+</asp:TemplateField>
+
+</Columns>
+</asp:GridView>
+</div>
 
 </div>
 </asp:Content>
