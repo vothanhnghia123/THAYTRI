@@ -480,6 +480,7 @@
         .cart-container{
     display:flex;
     gap:40px;
+    margin-top:20px;
     align-items:flex-start;
     width:100%;
 }
@@ -628,6 +629,24 @@
 .btn-pay:hover{
     background:#e65c00;
 }
+.cart-table th{
+    border:none;
+    background:transparent;
+    text-align:left;
+    padding:10px 0;
+}
+
+.cart-table tr:first-child{
+    border:none;
+}
+
+.cart-table{
+    border-collapse:collapse;
+}
+.cart-actions{
+    margin-top:20px;
+    text-align:right;
+}
     </style>
     <style>
         /*gioi thieu*/
@@ -653,6 +672,26 @@
 
 .about-container ul{
     margin-left:20px;
+}
+/**/
+.cart-actions{
+margin-top:20px;
+}
+
+.btn-delete-all{
+background:#e74c3c;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.tongtien{
+font-size:20px;
+font-weight:bold;
+color:red;
+margin-bottom:15px;
 }
     </style>
     <style>

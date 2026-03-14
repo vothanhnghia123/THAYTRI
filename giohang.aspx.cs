@@ -11,7 +11,10 @@ public partial class giohang : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        HienThiGioHang();
+        if (!IsPostBack)
+        {
+            HienThiGioHang();
+        }
 
     }
     void HienThiGioHang()
@@ -143,5 +146,51 @@ public partial class giohang : System.Web.UI.Page
 
         Response.Write("<script>alert('Đặt hàng thành công');location='TRANGCHU.aspx'</script>");
 
+    }
+    /* check box*/
+    protected void chkAll_CheckedChanged(object sender, EventArgs e)
+    {
+        CheckBox chkAll = (CheckBox)sender;
+
+        foreach (GridViewRow row in GridView1.Rows)
+        {
+            CheckBox chk = (CheckBox)row.FindControl("chkChon");
+            chk.Checked = chkAll.Checked;
+        }
+
+        TinhTongTien();
+    }
+    protected void chkChon_CheckedChanged(object sender, EventArgs e)
+    {
+        TinhTongTien();
+    }
+    void TinhTongTien()
+    {
+        double tong = 0;
+
+        DataTable giohang = (DataTable)Session["giohang"];
+
+        for (int i = 0; i < GridView1.Rows.Count; i++)
+        {
+            GridViewRow row = GridView1.Rows[i];
+
+            CheckBox chk = (CheckBox)row.FindControl("chkChon");
+
+            if (chk.Checked)
+            {
+                double gia = Convert.ToDouble(giohang.Rows[i]["GiaBan"]);
+                int sl = Convert.ToInt32(giohang.Rows[i]["SoLuong"]);
+
+                tong += gia * sl;
+            }
+        }
+
+        lblTongTien.Text = tong.ToString("N0") + " VNĐ";
+    }
+    /* nút xóa tất cả*/
+    protected void btnXoaTatCa_Click(object sender, EventArgs e)
+    {
+        Session["giohang"] = null;
+        Response.Redirect("giohang.aspx");
     }
 }

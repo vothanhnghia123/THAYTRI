@@ -10,61 +10,89 @@
     <div class="cart-left">
 
 <asp:GridView 
-ID="GridView1"
-runat="server"
-CssClass="cart-table"
-AutoGenerateColumns="False"
-ShowHeader="False"
-DataKeyNames="MaSach"
-OnRowDeleting="GridView1_RowDeleting">
+    ID="GridView1" 
+    runat="server" 
+    CssClass="cart-table" 
+    AutoGenerateColumns="False" 
+    ShowHeader="True" 
+    DataKeyNames="MaSach" 
+    OnRowDeleting="GridView1_RowDeleting">
 
-<Columns>
+    <Columns>
+        <asp:TemplateField HeaderStyle-Width="120px">
+            <HeaderTemplate>
+                <asp:CheckBox 
+                    ID="chkAll" 
+                    runat="server" 
+                    Text=" Chọn tất cả" 
+                    AutoPostBack="true" 
+                    OnCheckedChanged="chkAll_CheckedChanged" />
+            </HeaderTemplate>
 
-<asp:TemplateField>
-<ItemTemplate>
+            <ItemTemplate>
+                <asp:CheckBox 
+                    ID="chkChon" 
+                    runat="server" 
+                    AutoPostBack="true" 
+                    OnCheckedChanged="chkChon_CheckedChanged" />
+            </ItemTemplate>
+        </asp:TemplateField>
 
-<div class="cart-item">
+        <asp:TemplateField>
+            <ItemTemplate>
+                <div class="cart-item">
+                    
+                    <div class="item-img">
+                        <img src='<%# Eval("HinhAnh") %>' alt="Bìa sách" style="width: 80px;" />
+                    </div>
 
-<div class="item-img">
-<img src='<%# Eval("HinhAnh") %>' />
-</div>
+                    <div class="item-info">
+                        <div class="item-name" style="font-weight: bold;">
+                            <%# Eval("TenSach") %>
+                        </div>
+                        <div class="item-price" style="color: #666;">
+                            <%# Eval("GiaBan", "{0:N0}") %> đ
+                        </div>
+                    </div>
 
-<div class="item-info">
-<div class="item-name">
-<%# Eval("TenSach") %>
-</div>
+                    <div class="item-qty">
+                        Số lượng: <%# Eval("SoLuong") %>
+                    </div>
 
-<div class="item-price">
-<%# Eval("GiaBan","{0:N0}") %> đ
-</div>
-</div>
+                    <div class="item-total" style="color: red; font-weight: bold;">
+                        <%# string.Format("{0:N0}", Convert.ToDouble(Eval("GiaBan")) * Convert.ToInt32(Eval("SoLuong"))) %> đ
+                    </div>
 
-<div class="item-qty">
-SL: <%# Eval("SoLuong") %>
-</div>
+                    <div class="item-delete">
+                        <asp:LinkButton 
+                            ID="btnDelete" 
+                            runat="server" 
+                            CommandName="Delete" 
+                            
+                            ForeColor="Red"
+                            Style="text-decoration: none; font-size: 18px;">
+                            🗑
+                        </asp:LinkButton>
+                    </div>
 
-<div class="item-total">
-<%# Convert.ToDouble(Eval("GiaBan")) * Convert.ToInt32(Eval("SoLuong")) %> đ
-</div>
-
-<div class="item-delete">
-<asp:LinkButton runat="server" CommandName="Delete">🗑</asp:LinkButton>
-</div>
-
-</div>
-
-</ItemTemplate>
-</asp:TemplateField>
-
-</Columns>
+                </div>
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
 </asp:GridView>
 
         <br />
 
-        <div class="cart-total">
-            Tổng tiền:
-            <asp:Label ID="lblTongTien" runat="server"></asp:Label>
-        </div>
+        <div class="cart-actions">
+
+            <asp:Button 
+            ID="btnXoaTatCa"
+            runat="server"
+            Text="Xóa tất cả"
+            CssClass="btn-delete-all"
+            OnClick="btnXoaTatCa_Click"/>
+
+            </div>
 
     </div>
 
@@ -102,6 +130,12 @@ SL: <%# Eval("SoLuong") %>
         </asp:DropDownList>
 
         <br /><br />
+        <div class="tongtien">
+        Tổng tiền:
+        <asp:Label ID="lblTongTien" runat="server"></asp:Label>
+        </div>
+
+        <br />
 
         <asp:Button 
         ID="btnThanhToan"
