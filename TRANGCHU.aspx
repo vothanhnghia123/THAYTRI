@@ -31,10 +31,9 @@
             </table>
         </ItemTemplate>
     </asp:DataList>
-    <asp:AccessDataSource ID="AccessDataSource_SM" runat="server" DataFile="~/Data/BanSach.mdb" SelectCommand="SELECT TOP 8 * FROM Sach 
+    <asp:AccessDataSource ID="AccessDataSource_SM" runat="server" DataFile="~/Data/BanSach.mdb" SelectCommand="SELECT TOP 5 * FROM Sach 
 ORDER BY id DESC;"></asp:AccessDataSource>
     <div class="a_xemthem">
-        <asp:HyperLink ID="HyperLink1" runat="server">Xem Thêm ></asp:HyperLink>
     </div>
 
     <div>
@@ -66,9 +65,9 @@ ORDER BY id DESC;"></asp:AccessDataSource>
             </table>
         </ItemTemplate>
     </asp:DataList>
-    <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/Data/BanSach.mdb" SelectCommand="SELECT TOP 8 * FROM Sach WHERE MaLinhVuc='VH' ORDER BY id DESC;"></asp:AccessDataSource>
-    <div class="a_xemthem">
-        <asp:HyperLink ID="HyperLink2" runat="server">Xem Thêm ></asp:HyperLink>
+    <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/Data/BanSach.mdb" SelectCommand="SELECT TOP 10 * FROM Sach WHERE MaLinhVuc='VH' ORDER BY id DESC;"></asp:AccessDataSource>
+    <div class="a_xemthem" style="margin-left: 40px ">
+        <asp:HyperLink ID="HyperLink2" Class="alink" runat="server" NavigateUrl="sanpham.aspx?malv=VH" >Xem Thêm ></asp:HyperLink>
     </div>
 </asp:Content>
 
