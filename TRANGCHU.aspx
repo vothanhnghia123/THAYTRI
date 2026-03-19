@@ -2,6 +2,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div class="auto-style_sanpham">
     <div>
         <h1>Sách mới </h1>
     </div>
@@ -33,9 +34,10 @@
     </asp:DataList>
     <asp:AccessDataSource ID="AccessDataSource_SM" runat="server" DataFile="~/Data/BanSach.mdb" SelectCommand="SELECT TOP 5 * FROM Sach 
 ORDER BY id DESC;"></asp:AccessDataSource>
-    <div class="a_xemthem">
-    </div>
+</div>
 
+
+<div class="auto-style_sanpham">
     <div>
         <h1>Sách Văn học </h1>
     </div>
@@ -67,8 +69,45 @@ ORDER BY id DESC;"></asp:AccessDataSource>
     </asp:DataList>
     <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/Data/BanSach.mdb" SelectCommand="SELECT TOP 10 * FROM Sach WHERE MaLinhVuc='VH' ORDER BY id DESC;"></asp:AccessDataSource>
     <div class="a_xemthem" style="margin-left: 40px ">
-        <asp:HyperLink ID="HyperLink2" Class="alink" runat="server" NavigateUrl="sanpham.aspx?malv=VH" >Xem Thêm ></asp:HyperLink>
+        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="sanpham.aspx?malv=VH" >Xem Thêm ></asp:HyperLink>
     </div>
+</div>
+
+<div class="auto-style_sanpham">
+    <div>
+        <h1>Sách Thiếu nhi </h1>
+    </div>
+    <asp:DataList ID="DataList3" runat="server" DataKeyField="MaSach" DataSourceID="AccessDataSource2" RepeatColumns="5">
+
+        <ItemTemplate>
+            <table cellpadding="0" cellspacing="0" class="auto-style3">
+                <tr>
+                    <td>
+                        <asp:HyperLink ID="HyperLink27" runat="server" Class="alink" NavigateUrl='<%# Eval("MaSach", "trangchitiet.aspx?MaSach={0}") %>'>
+                            <div class="book-card">
+
+                                <img src="<%# Eval("HinhAnh") %>" class="book-img">
+
+                                <div class="book-name">
+                                    <%# Eval("TenSach") %>
+                                </div>
+
+                                <div class="book-price">
+                                    <%# String.Format("{0:N0}", Eval("GiaBan")) %> đ
+                                </div>
+
+                            </div>
+                        </asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </ItemTemplate>
+    </asp:DataList>
+    <asp:AccessDataSource ID="AccessDataSource2" runat="server" DataFile="~/Data/BanSach.mdb" SelectCommand="SELECT TOP 10 * FROM Sach WHERE MaLinhVuc='STN' ORDER BY id DESC;"></asp:AccessDataSource>
+    <div class="a_xemthem" style="margin-left: 40px ">
+        <asp:HyperLink ID="HyperLink1"  runat="server" NavigateUrl="sanpham.aspx?malv=STN" >Xem Thêm ></asp:HyperLink>
+    </div>
+</div>
 </asp:Content>
 
 

@@ -176,17 +176,25 @@
 }
         /**/
         .auto-style3 {
-            width: 100%;  
+            width: 100%;
+ 
         }
         .auto-style4 {
-            width: 75%;
+            width: 75%;       
+            
+        }
+        .auto-style_sanpham{
+            background-color:white;
+            border-radius:20px;
+            padding:10px 10px;
+            margin : 20px 0px;
         }
         /*---------------main-------------------*/
         .Products{
             padding-bottom:20px;
         }
         .backgruop_main{
-            background-color:white;
+            background-color:#e8e8e8;
         }
         /**/
         
@@ -236,9 +244,32 @@
             font-weight:bold;
             text-decoration: none;
         }
-        .a_xemthem{
-            text-align: right;
-        }
+.a_xemthem {
+    margin-top: 20px;
+    text-align: center; /* Căn giữa nút nếu cần */
+}
+
+.a_xemthem a {
+    display: inline-block;
+    padding: 8px 25px;
+    color: #C92127; /* Màu đỏ Fahasa */
+    border: 1px solid #C92127;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.a_xemthem a:hover {
+    background-color: #C92127;
+    color: #ffffff !important; /* Chuyển chữ sang trắng khi hover */
+    box-shadow: 0 4px 8px rgba(201, 33, 39, 0.2);
+}
+
+
+
         /*---------------footer-------------------*/
         .footer{
             background-color:#1D2938;
@@ -289,6 +320,9 @@
                 margin-top:20px;
                 display:flex;
                 gap:40px;
+                background-color:white;
+                padding:10px 10px;
+                border-radius:15px;
             }
             .row-info{
             display:grid;
@@ -357,7 +391,10 @@
     width:1200px;
     margin:auto;
     display:flex;
-    gap:20px;
+    gap:20px; 
+    background-color:white;
+    padding:10px 10px;
+    border-radius:15px;
 }
 
 /* LEFT */
@@ -658,6 +695,7 @@
     border-radius:12px;
     box-shadow:0 4px 12px rgba(0,0,0,0.1);
     line-height:1.7;
+    margin-top:20px;
 }
 
 .about-container h1{
@@ -758,6 +796,14 @@ margin-bottom:15px;
             el.style.display = (el.style.display === "none") ? "block" : "none";
         }
     </script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -925,5 +971,6 @@ margin-bottom:15px;
         </table>
     </div>
     </form>
+
     </body>
 </html>

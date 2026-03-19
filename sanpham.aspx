@@ -3,11 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    
     <asp:DataList ID="DataList1" runat="server" DataKeyField="MaSach" RepeatColumns="5">
         <ItemTemplate>
             <table cellpadding="0" cellspacing="0" class="auto-style3">
                 <tr>
-                    <td>
+                    <td >
                         <asp:HyperLink ID="HyperLink27" runat="server" Class="alink" NavigateUrl='<%# Eval("MaSach", "trangchitiet.aspx?MaSach={0}") %>'>
                             <div class="book-card">
 
@@ -28,6 +29,7 @@
             </table>
         </ItemTemplate>
     </asp:DataList>
+        
     <asp:AccessDataSource 
 ID="AccessDataSource1" 
 runat="server" 
@@ -44,5 +46,6 @@ Type="String" />
 </SelectParameters>
 
 </asp:AccessDataSource>
+    
 </asp:Content>
 
